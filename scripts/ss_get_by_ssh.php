@@ -424,10 +424,10 @@ function ss_get_by_ssh( $options ) {
       'MONGODB_index_hits'               => 'd9',
       'MONGODB_index_misses'             => 'da',
       'MONGODB_index_resets'             => 'db',
-      'MONGODB_background_flushes'       => 'dc',
-      'MONGODB_background_total_ms'      => 'dd',
-      'MONGODB_background_average_ms'    => 'de',
-      'MONGODB_background_last_ms'       => 'df',
+      'MONGODB_back_flushes'             => 'dc',
+      'MONGODB_back_total_ms'            => 'dd',
+      'MONGODB_back_average_ms'          => 'de',
+      'MONGODB_back_last_ms'             => 'df',
       'MONGODB_op_inserts'               => 'dg',
       'MONGODB_op_queries'               => 'dh',
       'MONGODB_op_updates'               => 'di',
@@ -1265,13 +1265,13 @@ function mongodb_parse ( $options, $output ) {
    $result["MONGODB_index_resets"] = $matches[1];
 
    preg_match('/"flushes" : ([0-9]+)/', $output, $matches);
-   $result["MONGODB_background_flushes"] = $matches[1];
+   $result["MONGODB_back_flushes"] = $matches[1];
    preg_match('/"total_ms" : ([0-9]+)/', $output, $matches);
-   $result["MONGODB_background_total_ms"] = $matches[1];
+   $result["MONGODB_back_total_ms"] = $matches[1];
    preg_match('/"average_ms" : ([0-9]+)/', $output, $matches);
-   $result["MONGODB_background_average_ms"] = $matches[1];
+   $result["MONGODB_back_average_ms"] = $matches[1];
    preg_match('/"last_ms" : ([0-9]+)/', $output, $matches);
-   $result["MONGODB_background_last_ms"] = $matches[1];
+   $result["MONGODB_back_last_ms"] = $matches[1];
 
    preg_match('/"insert" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_op_inserts"] = $matches[1];

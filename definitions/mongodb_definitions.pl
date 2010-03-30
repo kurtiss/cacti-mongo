@@ -224,7 +224,7 @@
                data_source_type_id => '3',
                hash => 'hash_08_VER_62a52639845ff73bb78b6d975bc24b41'
             },
-            MONGODB_op_resets => {
+            MONGODB_index_resets => {
                data_source_type_id => '3',
                hash => 'hash_08_VER_ccf8394176d5abd677f92505f00f1658'
             },
@@ -263,7 +263,7 @@
                   'hash_10_VER_40be6010aebedb2f7da2fdaccf6f7f32'
                ],
             },
-            {  item   => 'MONGODB_op_resets',
+            {  item   => 'MONGODB_index_resets',
                color  => '506101',
                task   => 'hash_09_VER_be464f29ce22e1f52ca992bb76cf3cb3',
                type   => 'LINE1',
@@ -282,25 +282,25 @@
          dt         => {
             hash       => 'hash_01_VER_013e3f54ad8c37507c8e4d2897da823f',
             input      => 'Get MongoDB Stats',
-            MONGODB_background_flushes => {
+            MONGODB_back_flushes => {
                data_source_type_id => '3',
                hash => 'hash_08_VER_911b147d6f39c8dbf86c0009581ef58f'
             },
-            MONGODB_background_total_ms => {
+            MONGODB_back_total_ms => {
                data_source_type_id => '3',
                hash => 'hash_08_VER_bb0448956715e340eb299d17513d263d'
             },
-            MONGODB_background_average_ms => {
+            MONGODB_back_average_ms => {
                data_source_type_id => '1',
                hash => 'hash_08_VER_a7414d1f065cbab2320b4b0b0ff71edc'
             },
-            MONGODB_background_last_ms => {
+            MONGODB_back_last_ms => {
                data_source_type_id => '1',
                hash => 'hash_08_VER_ce3f2037f1d85ed067a4fc2a8aa04d51'
             },
          },
          items => [
-            {  item   => 'MONGODB_background_flushes',
+            {  item   => 'MONGODB_back_flushes',
                color  => '4C98A7',
                task   => 'hash_09_VER_785524f59ad8a61a3a8055a50710d17c',
                type   => 'LINE1',
@@ -311,7 +311,7 @@
                   'hash_10_VER_137bca1ad0aa94f3029afd740ee1d95e'
                ],
             },
-            {  item   => 'MONGODB_background_total_ms',
+            {  item   => 'MONGODB_back_total_ms',
                color  => '547CC7',
                task   => 'hash_09_VER_075d63b55ffad4d20c3bf2bf7dfd65a7',
                type   => 'LINE1',
@@ -322,7 +322,7 @@
                   'hash_10_VER_4fc49b2fc73fde5b0bc320eeb4377875'
                ],
             },
-            {  item   => 'MONGODB_background_average_ms',
+            {  item   => 'MONGODB_back_average_ms',
                color  => '6359C2',
                task   => 'hash_09_VER_3fbfd1f87e64b8bcd2a2cce4577ac417',
                type   => 'LINE1',
@@ -333,7 +333,7 @@
                   'hash_10_VER_fc4a6a58606d710e13564603140653d1'
                ],
             },
-            {  item   => 'MONGODB_background_last_ms',
+            {  item   => 'MONGODB_back_last_ms',
                color  => '642DAD',
                task   => 'hash_09_VER_821277043f15e675a713c6e690d37260',
                type   => 'LINE1',
@@ -372,10 +372,10 @@
             MONGODB_index_hits               => 'hash_07_VER_5fd799714e2a28e4e11ac760aa8850a1',
             MONGODB_index_misses             => 'hash_07_VER_b6565823721824dc64bad2edcfb9b09c',
             MONGODB_index_resets             => 'hash_07_VER_e68de5962130d08b205a9488a629bb92',
-            MONGODB_background_flushes       => 'hash_07_VER_d2966c4241e730b30cd304879cdb8dc2',
-            MONGODB_background_total_ms      => 'hash_07_VER_c0dd19ec1e043b25f35ca0991dc9e595',
-            MONGODB_background_average_ms    => 'hash_07_VER_42b62ff37b971947a5cb5efc7f5157ad',
-            MONGODB_background_last_ms       => 'hash_07_VER_979d2bfebbb509181e4c4f9b7839ed9e',
+            MONGODB_back_flushes             => 'hash_07_VER_d2966c4241e730b30cd304879cdb8dc2',
+            MONGODB_back_total_ms            => 'hash_07_VER_c0dd19ec1e043b25f35ca0991dc9e595',
+            MONGODB_back_average_ms          => 'hash_07_VER_42b62ff37b971947a5cb5efc7f5157ad',
+            MONGODB_back_last_ms             => 'hash_07_VER_979d2bfebbb509181e4c4f9b7839ed9e',
             MONGODB_op_inserts               => 'hash_07_VER_064fd5cd30c258b953bc0d16e6df633e',
             MONGODB_op_queries               => 'hash_07_VER_cd45d5d4b38e96f23e6c0e27134ed667',
             MONGODB_op_updates               => 'hash_07_VER_684c71c7d8f1444d061e2c2e7c02b77f',
