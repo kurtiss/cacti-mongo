@@ -1238,7 +1238,7 @@ function mongodb_cachefile ( $options ) {
 }
 
 function mongodb_cmdline ( $options ) {
-   return "echo 'db._adminCommand({serverStatus:1})' | mongo";
+   return "echo \"db._adminCommand({serverStatus:1})\" | mongo";
 }
 
 function mongodb_parse ( $options, $output ) {

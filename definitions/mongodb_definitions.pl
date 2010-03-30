@@ -51,6 +51,61 @@
             },
          ],
       },
+      {  name       => 'MongoDB Memory',
+         base_value => '1024',
+         hash       => 'hash_00_VER_f01951c2799f75c4c1d1bed47eb96e40',
+         dt         => {
+            hash       => 'hash_01_VER_7e137605a58148cf8a555e6baf20eb65',
+            input      => 'Get MongoDB Stats',
+            MONGODB_used_virtual_memory => {
+               data_source_type_id => '1',
+               hash => 'hash_08_VER_f475ce42705736a51c34cb23aacbc59c'
+            },
+            MONGODB_used_mapped_memory => {
+               data_source_type_id => '1',
+               hash => 'hash_08_VER_105540d3a0b2664526af482a402879a4'
+            },
+            MONGODB_used_resident_memory => {
+               data_source_type_id => '1',
+               hash => 'hash_08_VER_3e96effb78a68f210912bbb4361c387c'
+            },
+         },
+         items => [
+            {  item   => 'MONGODB_used_virtual_memory',
+               color  => '3B7AD9',
+               task   => 'hash_09_VER_936aaccd9fe9a045f9390ad43f39b340',
+               type   => 'AREA',
+               hashes => [
+                  'hash_10_VER_aca5c6394c7044db6e692116d4cf8157',
+                  'hash_10_VER_33d353aaa7402585620291409568caff',
+                  'hash_10_VER_de9b6cb0db0f43cbdc28f9f8b6a596be',
+                  'hash_10_VER_25135544e3d38c248793b353e54faeb8'
+               ],
+            },
+            {  item   => 'MONGODB_used_mapped_memory',
+               color  => '6FD1BF',
+               task   => 'hash_09_VER_c10f15a6a1883445421af675cca5d42e',
+               type   => 'AREA',
+               hashes => [
+                  'hash_10_VER_44b596605bebc90b45a526331d3391f0',
+                  'hash_10_VER_8b83f86611fd0567225bbcd69f649f23',
+                  'hash_10_VER_13267cb4cc2f57e42e77afc63f93682a',
+                  'hash_10_VER_275260a561c1707ad24ddca5b427adb4'
+               ],
+            },
+            {  item   => 'MONGODB_used_resident_memory',
+               color  => '0E6E5C',
+               task   => 'hash_09_VER_48aedb0124cacaf12b138ec38a73ca3f',
+               type   => 'AREA',
+               hashes => [
+                  'hash_10_VER_3e7d709085ccdaf9afed9d3a6c98db5a',
+                  'hash_10_VER_d79210d1ffb8a132f70b22c75c3c3c52',
+                  'hash_10_VER_55396aa89c98397a4cc3f31b52f87990',
+                  'hash_10_VER_c1ba73653931511c45060f267fc6cb30'
+               ],
+            },
+         ],
+      },
    ],
    inputs => {
       'Get MongoDB Stats' => {
