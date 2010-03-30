@@ -206,6 +206,146 @@
             },
          ],
       },
+      {  name       => 'MongoDB Index Ops',
+         base_value => '1000',
+         hash       => 'hash_00_VER_848c071980c96258dd18744b3a9ff39c',
+         dt         => {
+            hash       => 'hash_01_VER_bd5644cbf5d3ca35337f79f9e0f8b4a4',
+            input      => 'Get MongoDB Stats',
+            MONGODB_index_accesses => {
+               data_source_type_id => '3',
+               hash => 'hash_08_VER_46eb1be565c7a55ecdf704eb298a8c88'
+            },
+            MONGODB_index_hits => {
+               data_source_type_id => '3',
+               hash => 'hash_08_VER_e8ea64ab280f5de96736df018731f288'
+            },
+            MONGODB_index_misses => {
+               data_source_type_id => '3',
+               hash => 'hash_08_VER_62a52639845ff73bb78b6d975bc24b41'
+            },
+            MONGODB_op_resets => {
+               data_source_type_id => '3',
+               hash => 'hash_08_VER_ccf8394176d5abd677f92505f00f1658'
+            },
+         },
+         items => [
+            {  item   => 'MONGODB_index_accesses',
+               color  => 'FF7200',
+               task   => 'hash_09_VER_b9dbbef8132bc85a9e5264d4f7ebaf53',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_eda1210fc9cea3e25e5679a1e84c682d',
+                  'hash_10_VER_c56af0ca1cbd299acab1d5fea1271caa',
+                  'hash_10_VER_1f2361d26a14ba73d084aedd939cb46d',
+                  'hash_10_VER_a7071be3273f22095dbd5d451d8ea7bc'
+               ],
+            },
+            {  item   => 'MONGODB_index_hits',
+               color  => '503001',
+               task   => 'hash_09_VER_5b0d0368aa961d96e77ba1b4ac43255e',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_9200f01ce0d9d4a22855cada0f075676',
+                  'hash_10_VER_95c94c6fac87cb29b89c528735b7696c',
+                  'hash_10_VER_4c8096f50a59e9d4fb2a85055592d315',
+                  'hash_10_VER_88a4f0d29e3edf2869b672557c575a9d'
+               ],
+            },
+            {  item   => 'MONGODB_index_misses',
+               color  => 'EDAC00',
+               task   => 'hash_09_VER_b96035a15bf05b77e0c3d966a1605ec3',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_a935f7447f61ce516bf778b0334cb156',
+                  'hash_10_VER_cf0f73b6c696ab9fa31bbf9ec8bcb8f6',
+                  'hash_10_VER_53795146d0ce1df8f1b678f53ca40d19',
+                  'hash_10_VER_40be6010aebedb2f7da2fdaccf6f7f32'
+               ],
+            },
+            {  item   => 'MONGODB_op_resets',
+               color  => '506101',
+               task   => 'hash_09_VER_be464f29ce22e1f52ca992bb76cf3cb3',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_05e1ef078af38b6df02a5dad8cb3668a',
+                  'hash_10_VER_ac442bc02c64ab54341de23c27fc59ad',
+                  'hash_10_VER_a79064534fc4a79fc1c378c494a58ef5',
+                  'hash_10_VER_9e7cd2b5c58e33f1609cc43fc6cd101e'
+               ],
+            },
+         ],
+      },
+      {  name       => 'MongoDB Background Flushes',
+         base_value => '1000',
+         hash       => 'hash_00_VER_e54ed4634fd41c685b98ee1cd62dba5e',
+         dt         => {
+            hash       => 'hash_01_VER_013e3f54ad8c37507c8e4d2897da823f',
+            input      => 'Get MongoDB Stats',
+            MONGODB_background_flushes => {
+               data_source_type_id => '3',
+               hash => 'hash_08_VER_911b147d6f39c8dbf86c0009581ef58f'
+            },
+            MONGODB_background_total_ms => {
+               data_source_type_id => '3',
+               hash => 'hash_08_VER_bb0448956715e340eb299d17513d263d'
+            },
+            MONGODB_background_average_ms => {
+               data_source_type_id => '1',
+               hash => 'hash_08_VER_a7414d1f065cbab2320b4b0b0ff71edc'
+            },
+            MONGODB_background_last_ms => {
+               data_source_type_id => '1',
+               hash => 'hash_08_VER_ce3f2037f1d85ed067a4fc2a8aa04d51'
+            },
+         },
+         items => [
+            {  item   => 'MONGODB_background_flushes',
+               color  => '4C98A7',
+               task   => 'hash_09_VER_785524f59ad8a61a3a8055a50710d17c',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_88385e7e266bcfe7aa35f496c4d24da3',
+                  'hash_10_VER_56f0327b458c2392e13cb7d73ac46ef6',
+                  'hash_10_VER_1eb2899e371b775acec3e5783ff49d51',
+                  'hash_10_VER_137bca1ad0aa94f3029afd740ee1d95e'
+               ],
+            },
+            {  item   => 'MONGODB_background_total_ms',
+               color  => '547CC7',
+               task   => 'hash_09_VER_075d63b55ffad4d20c3bf2bf7dfd65a7',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_6f14f158408e1077617f27d345d6e433',
+                  'hash_10_VER_95ebd255c839bff1d47ceed2fbf5c028',
+                  'hash_10_VER_59e323765d8f42883701eba0c963de8c',
+                  'hash_10_VER_4fc49b2fc73fde5b0bc320eeb4377875'
+               ],
+            },
+            {  item   => 'MONGODB_background_average_ms',
+               color  => '6359C2',
+               task   => 'hash_09_VER_3fbfd1f87e64b8bcd2a2cce4577ac417',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_2a0c2374dc568cc268026e711c8fec39',
+                  'hash_10_VER_df6aaeaa863dfdca8d770bef7705edae',
+                  'hash_10_VER_2ea6e12bb40f7539c93559c8eda79ca0',
+                  'hash_10_VER_fc4a6a58606d710e13564603140653d1'
+               ],
+            },
+            {  item   => 'MONGODB_background_last_ms',
+               color  => '642DAD',
+               task   => 'hash_09_VER_821277043f15e675a713c6e690d37260',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_ec73703301f5d6365f1524edc484bb41',
+                  'hash_10_VER_04008f2d5384206553d6333b1ea5babd',
+                  'hash_10_VER_27bb936bc4f5687182b9cb43c81852e1',
+                  'hash_10_VER_e7b9de63dff13e7275bd8cb005e3dd8a'
+               ],
+            },
+         ],
+      },
    ],
    inputs => {
       'Get MongoDB Stats' => {
