@@ -330,6 +330,17 @@ is_deeply(
    'samples/redis-001.txt'
 );
 
+is(
+   ss_get_by_ssh( array(
+      'file'    => 'samples/redis-001.txt',
+      'type'    => 'redis',
+      'host'    => 'localhost',
+      'items'   => 'cy,cz,d0,d1,d2,d3',
+   )),
+   'cy:119 cz:911 d0:412372 d1:4321 d2:3333 d3:5',
+   'main(samples/redis-001.txt)'
+);
+
 is_deeply(
    mongodb_parse( null, file_get_contents('samples/mongodb-001.txt') ),
    array(
@@ -357,13 +368,13 @@ is_deeply(
 
 is(
    ss_get_by_ssh( array(
-      'file'    => 'samples/redis-001.txt',
-      'type'    => 'redis',
+      'file'    => 'samples/mongodb-001.txt',
+      'type'    => 'mongodb',
       'host'    => 'localhost',
-      'items'   => 'cy,cz,d0,d1,d2,d3',
+      'items'   => 'd4,d5,d6,d7,d8,d9,da,db,dc,dd,de,df,dg,dh,di,dj,dk,dl',
    )),
-   'cy:119 cz:911 d0:412372 d1:4321 d2:3333 d3:5',
-   'main(samples/redis-001.txt)'
+   'd4:3 d5:15287 d6:61971 d7:62425 d8:1589814 d9:1589814 da:0 db:0 dc:4883 dd:2309034 de:472 df:36 dg:1584705 dh:145518 di:2521129 dj:601 dk:2268817 dl:17810',
+   'main(samples/mongodb-001.txt)'
 );
 
 ?>

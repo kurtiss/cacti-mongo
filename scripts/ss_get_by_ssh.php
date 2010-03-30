@@ -416,10 +416,10 @@ function ss_get_by_ssh( $options ) {
       'REDIS_total_connections_received' => 'd2',
       'REDIS_total_commands_processed'   => 'd3',
       # Stuff from mongodb
-      'MONGODB_used_resident_memory'     => 'd4',
-      'MONGODB_used_mapped_memory'       => 'd5',
-      'MONGODB_used_virtual_memory'      => 'd6',
-      'MONGODB_connected_clients'        => 'd7',
+      'MONGODB_connected_clients'        => 'd4',
+      'MONGODB_used_resident_memory'     => 'd5',
+      'MONGODB_used_mapped_memory'       => 'd6',
+      'MONGODB_used_virtual_memory'      => 'd7',
       'MONGODB_index_accesses'           => 'd8',
       'MONGODB_index_hits'               => 'd9',
       'MONGODB_index_misses'             => 'da',
@@ -1245,14 +1245,16 @@ function mongodb_parse ( $options, $output ) {
    $result = array();
    $matches = array();
 
+   preg_match('/"current" : ([0-9]+)/', $output, $matches);
+   $result["MONGODB_connected_clients"] = $matches[1];
+
    preg_match('/"resident" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_used_resident_memory"] = $matches[1];
    preg_match('/"mapped" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_used_mapped_memory"] = $matches[1];
    preg_match('/"virtual" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_used_virtual_memory"] = $matches[1];
-   preg_match('/"current" : ([0-9]+)/', $output, $matches);
-   $result["MONGODB_connected_clients"] = $matches[1];
+
    preg_match('/"accesses" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_index_accesses"] = $matches[1];
    preg_match('/"hits" : ([0-9]+)/', $output, $matches);
@@ -1261,6 +1263,7 @@ function mongodb_parse ( $options, $output ) {
    $result["MONGODB_index_misses"] = $matches[1];
    preg_match('/"resets" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_index_resets"] = $matches[1];
+
    preg_match('/"flushes" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_background_flushes"] = $matches[1];
    preg_match('/"total_ms" : ([0-9]+)/', $output, $matches);
@@ -1269,6 +1272,7 @@ function mongodb_parse ( $options, $output ) {
    $result["MONGODB_background_average_ms"] = $matches[1];
    preg_match('/"last_ms" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_background_last_ms"] = $matches[1];
+
    preg_match('/"insert" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_op_inserts"] = $matches[1];
    preg_match('/"query" : ([0-9]+)/', $output, $matches);
