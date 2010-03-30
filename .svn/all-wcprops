@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/452/trunk
+END
+make.sh
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/344/trunk/make.sh
+END
+Changelog
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/452/trunk/Changelog
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/22/trunk/COPYING
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/306/trunk/README
+END
