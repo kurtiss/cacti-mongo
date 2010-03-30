@@ -52,7 +52,7 @@
          ],
       },
       {  name       => 'MongoDB Memory',
-         base_value => '1024',
+         base_value => '0',
          hash       => 'hash_00_VER_f01951c2799f75c4c1d1bed47eb96e40',
          dt         => {
             hash       => 'hash_01_VER_7e137605a58148cf8a555e6baf20eb65',
