@@ -434,6 +434,7 @@ function ss_get_by_ssh( $options ) {
       'MONGODB_op_deletes'               => 'dj',
       'MONGODB_op_getmores'              => 'dk',
       'MONGODB_op_commands'              => 'dl',
+      'MONGODB_slave_lag'                => 'dm',
    );
 
    # Prepare and return the output.  The output we have right now is the whole
@@ -1238,7 +1239,7 @@ function mongodb_cachefile ( $options ) {
 }
 
 function mongodb_cmdline ( $options ) {
-   return "echo \"db._adminCommand({serverStatus:1})\" | mongo";
+   return "echo \"db._adminCommand({serverStatus:1, repl:2})\" | mongo";
 }
 
 function mongodb_parse ( $options, $output ) {
@@ -1285,6 +1286,12 @@ function mongodb_parse ( $options, $output ) {
    $result["MONGODB_op_getmores"] = $matches[1];
    preg_match('/"command" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_op_commands"] = $matches[1];
+
+   if (preg_match('/"lagSeconds" : ([0-9]+)/', $output, $matches) == 0) {
+     $result["MONGODB_slave_lag"] = 0;
+   } else {
+     $result["MONGODB_slave_lag"] = $matches[1];
+   }
 
    return $result;
 }

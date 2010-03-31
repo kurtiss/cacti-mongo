@@ -42,10 +42,22 @@ type "help" for help
 		"last_ms" : 36,
 		"last_finished" : "Mon Mar 29 2010 20:41:26 GMT-0700 (PDT)"
 	},
-	"repl" : {
-		"ismaster" : 1,
-		"msg" : "not paired"
-	},
+  "repl" : {
+    "ismaster" : 0,
+    "msg" : "not paired",
+    "sources" : [
+      {
+        "host" : "192.168.1.230",
+        "syncedTo" : {
+          "time" : "Wed Mar 31 2010 11:25:58 GMT-0700 (PDT)",
+          "inc" : 1
+        },
+        "masterFirst" : "Wed Mar 17 2010 16:25:45 GMT-0700 (PDT)",
+        "masterLast" : "Wed Mar 31 2010 11:25:58 GMT-0700 (PDT)",
+        "lagSeconds" : 0
+      }
+    ]
+  },
 	"opcounters" : {
 		"insert" : 1584705,
 		"query" : 145518,

@@ -362,6 +362,7 @@ is_deeply(
       'MONGODB_op_deletes'                => '601',
       'MONGODB_op_getmores'               => '2268817',
       'MONGODB_op_commands'               => '17810',
+      'MONGODB_slave_lag'               => '0',
    ),
    'samples/mongodb-001.txt'
 );
@@ -371,9 +372,9 @@ is(
       'file'    => 'samples/mongodb-001.txt',
       'type'    => 'mongodb',
       'host'    => 'localhost',
-      'items'   => 'd4,d5,d6,d7,d8,d9,da,db,dc,dd,de,df,dg,dh,di,dj,dk,dl',
+      'items'   => 'd4,d5,d6,d7,d8,d9,da,db,dc,dd,de,df,dg,dh,di,dj,dk,dl,dm',
    )),
-   'd4:3 d5:16029581312 d6:64981303296 d7:65457356800 d8:1589814 d9:1589814 da:0 db:0 dc:4883 dd:2309034 de:472 df:36 dg:1584705 dh:145518 di:2521129 dj:601 dk:2268817 dl:17810',
+   'd4:3 d5:16029581312 d6:64981303296 d7:65457356800 d8:1589814 d9:1589814 da:0 db:0 dc:4883 dd:2309034 de:472 df:36 dg:1584705 dh:145518 di:2521129 dj:601 dk:2268817 dl:17810 dm:0',
    'main(samples/mongodb-001.txt)'
 );
 

@@ -301,7 +301,7 @@
          },
          items => [
             {  item   => 'MONGODB_back_flushes',
-               color  => '4C98A7',
+               color  => '71FF06',
                task   => 'hash_09_VER_785524f59ad8a61a3a8055a50710d17c',
                type   => 'LINE1',
                hashes => [
@@ -312,7 +312,7 @@
                ],
             },
             {  item   => 'MONGODB_back_total_ms',
-               color  => '547CC7',
+               color  => 'FF2400',
                task   => 'hash_09_VER_075d63b55ffad4d20c3bf2bf7dfd65a7',
                type   => 'LINE1',
                hashes => [
@@ -323,7 +323,7 @@
                ],
             },
             {  item   => 'MONGODB_back_average_ms',
-               color  => '6359C2',
+               color  => 'E83089',
                task   => 'hash_09_VER_3fbfd1f87e64b8bcd2a2cce4577ac417',
                type   => 'LINE1',
                hashes => [
@@ -334,7 +334,7 @@
                ],
             },
             {  item   => 'MONGODB_back_last_ms',
-               color  => '642DAD',
+               color  => '17D2E1',
                task   => 'hash_09_VER_821277043f15e675a713c6e690d37260',
                type   => 'LINE1',
                hashes => [
@@ -342,6 +342,31 @@
                   'hash_10_VER_04008f2d5384206553d6333b1ea5babd',
                   'hash_10_VER_27bb936bc4f5687182b9cb43c81852e1',
                   'hash_10_VER_e7b9de63dff13e7275bd8cb005e3dd8a'
+               ],
+            },
+         ],
+      },
+      {  name       => 'MongoDB Slave Lag',
+         base_value => '1000',
+         hash       => 'hash_00_VER_6cfb71a1dc590427a4f67abaa4dd6ee4',
+         dt         => {
+            hash       => 'hash_01_VER_529a99cd4b6edb898fa8feec8e83e21f',
+            input      => 'Get MongoDB Stats',
+            MONGODB_slave_lag => {
+               data_source_type_id => '1',
+               hash => 'hash_08_VER_625e2cdbc38a3b585a7853d4b200d698'
+            },
+         },
+         items => [
+            {  item   => 'MONGODB_slave_lag',
+               color  => '3F00B8',
+               task   => 'hash_09_VER_c80db7bad932cc5c423f5cbfe0a42ee2',
+               type   => 'LINE1',
+               hashes => [
+                  'hash_10_VER_c2755fa8b0515fa3873f1337190789df',
+                  'hash_10_VER_3e88dc304b302139f13e896022bccb1b',
+                  'hash_10_VER_62ee89e92919a52ea61ec8023851d82e',
+                  'hash_10_VER_e6d21024f9c230356b004ff222a6999f'
                ],
             },
          ],
@@ -382,6 +407,7 @@
             MONGODB_op_deletes               => 'hash_07_VER_7a0a1c29c036e456291cff7b5d2550b6',
             MONGODB_op_getmores              => 'hash_07_VER_33ca6d7f73ab40c58d46cdab85070d4c',
             MONGODB_op_commands              => 'hash_07_VER_db34dc36487cb71c5b3364b2b79c6b2b',
+            MONGODB_slave_lag                => 'hash_07_VER_d3e87eac689afb5c3a53888f8939396a',
          },
       },
    },
