@@ -1249,11 +1249,11 @@ function mongodb_parse ( $options, $output ) {
    $result["MONGODB_connected_clients"] = $matches[1];
 
    preg_match('/"resident" : ([0-9]+)/', $output, $matches);
-   $result["MONGODB_used_resident_memory"] = $matches[1];
+   $result["MONGODB_used_resident_memory"] = intval($matches[1]) * 1024 * 1024;
    preg_match('/"mapped" : ([0-9]+)/', $output, $matches);
-   $result["MONGODB_used_mapped_memory"] = $matches[1];
+   $result["MONGODB_used_mapped_memory"] = intval($matches[1]) * 1024 * 1024;
    preg_match('/"virtual" : ([0-9]+)/', $output, $matches);
-   $result["MONGODB_used_virtual_memory"] = $matches[1];
+   $result["MONGODB_used_virtual_memory"] = intval($matches[1]) * 1024 * 1024;
 
    preg_match('/"accesses" : ([0-9]+)/', $output, $matches);
    $result["MONGODB_index_accesses"] = $matches[1];

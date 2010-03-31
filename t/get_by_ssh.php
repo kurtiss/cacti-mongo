@@ -345,9 +345,9 @@ is_deeply(
    mongodb_parse( null, file_get_contents('samples/mongodb-001.txt') ),
    array(
       'MONGODB_connected_clients'         => '3',
-      'MONGODB_used_resident_memory'      => '15287',
-      'MONGODB_used_mapped_memory'        => '61971',
-      'MONGODB_used_virtual_memory'       => '62425',
+      'MONGODB_used_resident_memory'      => '16029581312',
+      'MONGODB_used_mapped_memory'        => '64981303296',
+      'MONGODB_used_virtual_memory'       => '65457356800',
       'MONGODB_index_accesses'            => '1589814',
       'MONGODB_index_hits'                => '1589814',
       'MONGODB_index_misses'              => '0',
@@ -373,7 +373,7 @@ is(
       'host'    => 'localhost',
       'items'   => 'd4,d5,d6,d7,d8,d9,da,db,dc,dd,de,df,dg,dh,di,dj,dk,dl',
    )),
-   'd4:3 d5:15287 d6:61971 d7:62425 d8:1589814 d9:1589814 da:0 db:0 dc:4883 dd:2309034 de:472 df:36 dg:1584705 dh:145518 di:2521129 dj:601 dk:2268817 dl:17810',
+   'd4:3 d5:16029581312 d6:64981303296 d7:65457356800 d8:1589814 d9:1589814 da:0 db:0 dc:4883 dd:2309034 de:472 df:36 dg:1584705 dh:145518 di:2521129 dj:601 dk:2268817 dl:17810',
    'main(samples/mongodb-001.txt)'
 );
 
