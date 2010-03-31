@@ -1288,7 +1288,7 @@ function mongodb_parse ( $options, $output ) {
    $result["MONGODB_op_commands"] = $matches[1];
 
    if (preg_match('/"lagSeconds" : ([0-9]+)/', $output, $matches) == 0) {
-     $result["MONGODB_slave_lag"] = 0;
+     $result["MONGODB_slave_lag"] = -1;
    } else {
      $result["MONGODB_slave_lag"] = $matches[1];
    }
