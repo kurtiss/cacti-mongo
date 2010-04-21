@@ -60,7 +60,7 @@ $openvz_cmd    = 'cat /proc/user_beancounters';
 # ============================================================================
 # You should not need to change anything below this line.
 # ============================================================================
-$version = '1.1.6';
+$version = '1.1.7';
 
 # ============================================================================
 # Include settings from an external config file (issue 39).
@@ -203,7 +203,7 @@ General options:
                      desired data after SSHing.  Default is 'localhost' for HTTP
                      stats and --host for memcached stats.
    --type            One of apache, nginx, proc_stat, w, memory, memcached,
-                     diskstats, openvz, redis, mongodb (more are TODO)
+                     diskstats, openvz, redis, jmx, mongodb (more are TODO)
    --url             The url, such as /server-status, where server status lives
    --use-ssh         Whether to connect via SSH to gather info (default yes).
    --http-user       The HTTP authentication user
@@ -415,26 +415,35 @@ function ss_get_by_ssh( $options ) {
       'REDIS_changes_since_last_save'    => 'd1',
       'REDIS_total_connections_received' => 'd2',
       'REDIS_total_commands_processed'   => 'd3',
+      # Stuff from jmx
+      'JMX_heap_memory_used'             => 'd4',
+      'JMX_heap_memory_committed'        => 'd5',
+      'JMX_heap_memory_max'              => 'd6',
+      'JMX_non_heap_memory_used'         => 'd7',
+      'JMX_non_heap_memory_committed'    => 'd8',
+      'JMX_non_heap_memory_max'          => 'd9',
+      'JMX_open_file_descriptors'        => 'da',
+      'JMX_max_file_descriptors'         => 'db',
       # Stuff from mongodb
-      'MONGODB_connected_clients'        => 'd4',
-      'MONGODB_used_resident_memory'     => 'd5',
-      'MONGODB_used_mapped_memory'       => 'd6',
-      'MONGODB_used_virtual_memory'      => 'd7',
-      'MONGODB_index_accesses'           => 'd8',
-      'MONGODB_index_hits'               => 'd9',
-      'MONGODB_index_misses'             => 'da',
-      'MONGODB_index_resets'             => 'db',
-      'MONGODB_back_flushes'             => 'dc',
-      'MONGODB_back_total_ms'            => 'dd',
-      'MONGODB_back_average_ms'          => 'de',
-      'MONGODB_back_last_ms'             => 'df',
-      'MONGODB_op_inserts'               => 'dg',
-      'MONGODB_op_queries'               => 'dh',
-      'MONGODB_op_updates'               => 'di',
-      'MONGODB_op_deletes'               => 'dj',
-      'MONGODB_op_getmores'              => 'dk',
-      'MONGODB_op_commands'              => 'dl',
-      'MONGODB_slave_lag'                => 'dm',
+      'MONGODB_connected_clients'        => 'dc',
+      'MONGODB_used_resident_memory'     => 'dd',
+      'MONGODB_used_mapped_memory'       => 'de',
+      'MONGODB_used_virtual_memory'      => 'df',
+      'MONGODB_index_accesses'           => 'dg',
+      'MONGODB_index_hits'               => 'dh',
+      'MONGODB_index_misses'             => 'di',
+      'MONGODB_index_resets'             => 'dj',
+      'MONGODB_back_flushes'             => 'dk',
+      'MONGODB_back_total_ms'            => 'dl',
+      'MONGODB_back_average_ms'          => 'dm',
+      'MONGODB_back_last_ms'             => 'dn',
+      'MONGODB_op_inserts'               => 'do',
+      'MONGODB_op_queries'               => 'dp',
+      'MONGODB_op_updates'               => 'dq',
+      'MONGODB_op_deletes'               => 'dr',
+      'MONGODB_op_getmores'              => 'ds',
+      'MONGODB_op_commands'              => 'dt',
+      'MONGODB_slave_lag'                => 'du',
    );
 
    # Prepare and return the output.  The output we have right now is the whole
@@ -596,41 +605,41 @@ function increment(&$arr, $key, $howmuch) {
 # ============================================================================
 # Multiply two big integers together as accurately as possible with reasonable
 # effort.  This is tested in t/mysql_stats.php and copied, without tests, to
-# ss_get_by_ssh.php.
+# ss_get_by_ssh.php.  $force is for testability.
 # ============================================================================
-function big_multiply ($left, $right) {
-   if ( function_exists("gmp_mul") ) {
+function big_multiply ($left, $right, $force = null) {
+   if ( function_exists("gmp_mul") && (is_null($force) || $force == 'gmp') ) {
       debug(array('gmp_mul', $left, $right));
       return gmp_strval( gmp_mul( $left, $right ));
    }
-   elseif ( function_exists("bcmul") ) {
+   elseif ( function_exists("bcmul") && (is_null($force) || $force == 'bc') ) {
       debug(array('bcmul', $left, $right));
       return bcmul( $left, $right );
    }
-   else {
+   else { # Or $force == 'something else'
       debug(array('sprintf', $left, $right));
-      return sprintf(".0f", $left * $right);
+      return sprintf("%.0f", $left * $right);
    }
 }
 
 # ============================================================================
 # Subtract two big integers as accurately as possible with reasonable effort.
 # This is tested in t/mysql_stats.php and copied, without tests, to
-# ss_get_by_ssh.php.
+# ss_get_by_ssh.php.  $force is for testability.
 # ============================================================================
-function big_sub ($left, $right) {
+function big_sub ($left, $right, $force = null) {
    debug(array($left, $right));
    if ( is_null($left)  ) { $left = 0; }
    if ( is_null($right) ) { $right = 0; }
-   if ( function_exists("gmp_sub") ) {
+   if ( function_exists("gmp_sub") && (is_null($force) || $force == 'gmp')) {
       debug(array('gmp_sub', $left, $right));
       return gmp_strval( gmp_sub( $left, $right ));
    }
-   elseif ( function_exists("bcsub") ) {
+   elseif ( function_exists("bcsub") && (is_null($force) || $force == 'bc')) {
       debug(array('bcsub', $left, $right));
       return bcsub( $left, $right );
    }
-   else {
+   else { # Or $force == 'something else'
       debug(array('to_int', $left, $right));
       return to_int($left - $right);
    }
@@ -639,20 +648,20 @@ function big_sub ($left, $right) {
 # ============================================================================
 # Add two big integers together as accurately as possible with reasonable
 # effort.  This is tested in t/mysql_stats.php and copied, without tests, to
-# ss_get_by_ssh.php.
+# ss_get_by_ssh.php.  $force is for testability.
 # ============================================================================
-function big_add ($left, $right) {
+function big_add ($left, $right, $force = null) {
    if ( is_null($left)  ) { $left = 0; }
    if ( is_null($right) ) { $right = 0; }
-   if ( function_exists("gmp_add") ) {
+   if ( function_exists("gmp_add") && (is_null($force) || $force == 'gmp')) {
       debug(array('gmp_add', $left, $right));
       return gmp_strval( gmp_add( $left, $right ));
    }
-   elseif ( function_exists("bcadd") ) {
+   elseif ( function_exists("bcadd") && (is_null($force) || $force == 'bc')) {
       debug(array('bcadd', $left, $right));
       return bcadd( $left, $right );
    }
-   else {
+   else { # Or $force == 'something else'
       debug(array('to_int', $left, $right));
       return to_int($left + $right);
    }
@@ -1228,9 +1237,48 @@ function redis_get ( $options ) {
 }
 
 # ============================================================================
+# Get and parse stats from JMX.
+# You can test it like this, as root:
+# su - cacti -c 'env -i php /var/www/cacti/scripts/ss_get_by_ssh.php --type jmx --host 127.0.0.1 --items d4,d5,d6,d7,d8,d9,da,db
+# ============================================================================
+function jmx_parse ( $options, $output ) {
+   $result = array();
+   $wanted = array(
+      'heap_memory_used',
+      'heap_memory_committed',
+      'heap_memory_max',
+      'non_heap_memory_used',
+      'non_heap_memory_committed',
+      'non_heap_memory_max',
+      'open_file_descriptors',
+      'max_file_descriptors',
+   );
+   foreach ( explode("\n", $output) as $line ) {
+      $words = explode(':', $line);
+      if ( count($words) && in_array($words[0], $wanted) ) {
+         $result["JMX_$words[0]"] = trim($words[1]);
+      }
+   }
+   return $result;
+}
+
+function jmx_cachefile ( $options ) {
+   $sanitized_host
+      = str_replace(array(":", "/"), array("", "_"), $options['host']);
+   $sanitized_port2
+      = str_replace(array(":", "/"), array("", "_"), $options['port2']);
+   return "${sanitized_host}_jmx_${sanitized_port2}";
+}
+
+function jmx_cmdline ( $options ) {
+   $port = isset($options['port2']) ? "$options[port2]" : '9012';
+   return "ant -Djmx.server.port=$port -e -q -f jmx-monitor.xml";
+}
+
+# ============================================================================
 # Get and parse stats from mongodb on a given port
 # You can test it like this, as root:
-# su - cacti -c 'env -i php /var/www/cacti/scripts/ss_get_by_ssh.php --type mongodb --host 127.0.0.1 --items d4,d5,d6,d7,d8,d9,da,db,dc,dd,de,df,dg,dh,di,dj,dk,dl
+# su - cacti -c 'env -i php /var/www/cacti/scripts/ss_get_by_ssh.php --type mongodb --host 127.0.0.1 --items dc,de,df,dg,dh,di,dj,dk,dl,dm,dn,do,dp,dq,dr,ds,dt,du
 # ============================================================================
 function mongodb_cachefile ( $options ) {
    $sanitized_host

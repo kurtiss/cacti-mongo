@@ -1,47 +1,53 @@
 K 25
 svn:wc:ra_dav:version-url
 V 35
-/svn/!svn/ver/451/trunk/definitions
+/svn/!svn/ver/493/trunk/definitions
+END
+jmx_definitions.pl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/474/trunk/definitions/jmx_definitions.pl
 END
 apache_definitions.pl
 K 25
 svn:wc:ra_dav:version-url
 V 57
-/svn/!svn/ver/402/trunk/definitions/apache_definitions.pl
+/svn/!svn/ver/493/trunk/definitions/apache_definitions.pl
 END
 openvz_definitions.pl
 K 25
 svn:wc:ra_dav:version-url
 V 57
-/svn/!svn/ver/402/trunk/definitions/openvz_definitions.pl
+/svn/!svn/ver/493/trunk/definitions/openvz_definitions.pl
 END
 nginx_definitions.pl
 K 25
 svn:wc:ra_dav:version-url
 V 56
-/svn/!svn/ver/402/trunk/definitions/nginx_definitions.pl
+/svn/!svn/ver/493/trunk/definitions/nginx_definitions.pl
 END
 mysql_definitions.pl
 K 25
 svn:wc:ra_dav:version-url
 V 56
-/svn/!svn/ver/451/trunk/definitions/mysql_definitions.pl
+/svn/!svn/ver/493/trunk/definitions/mysql_definitions.pl
 END
 memcached_definitions.pl
 K 25
 svn:wc:ra_dav:version-url
 V 60
-/svn/!svn/ver/402/trunk/definitions/memcached_definitions.pl
+/svn/!svn/ver/493/trunk/definitions/memcached_definitions.pl
 END
 redis_definitions.pl
 K 25
 svn:wc:ra_dav:version-url
 V 56
-/svn/!svn/ver/426/trunk/definitions/redis_definitions.pl
+/svn/!svn/ver/493/trunk/definitions/redis_definitions.pl
 END
 gnu_linux_definitions.pl
 K 25
 svn:wc:ra_dav:version-url
 V 60
-/svn/!svn/ver/402/trunk/definitions/gnu_linux_definitions.pl
+/svn/!svn/ver/493/trunk/definitions/gnu_linux_definitions.pl
 END

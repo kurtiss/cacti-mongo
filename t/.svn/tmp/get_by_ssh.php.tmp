@@ -342,6 +342,43 @@ is(
 );
 
 is_deeply(
+   mongodb_parse( null, file_get_contents('samples/mongodb-001.txt') ),
+   array(
+      'MONGODB_connected_clients'         => '3',
+      'MONGODB_used_resident_memory'      => '16029581312',
+      'MONGODB_used_mapped_memory'        => '64981303296',
+      'MONGODB_used_virtual_memory'       => '65457356800',
+      'MONGODB_index_accesses'            => '1589814',
+      'MONGODB_index_hits'                => '1589814',
+      'MONGODB_index_misses'              => '0',
+      'MONGODB_index_resets'              => '0',
+      'MONGODB_back_flushes'        => '4883',
+      'MONGODB_back_total_ms'       => '2309034',
+      'MONGODB_back_average_ms'     => '472',
+      'MONGODB_back_last_ms'        => '36',
+      'MONGODB_op_inserts'                => '1584705',
+      'MONGODB_op_queries'                => '145518',
+      'MONGODB_op_updates'                => '2521129',
+      'MONGODB_op_deletes'                => '601',
+      'MONGODB_op_getmores'               => '2268817',
+      'MONGODB_op_commands'               => '17810',
+      'MONGODB_slave_lag'               => '0',
+   ),
+   'samples/mongodb-001.txt'
+);
+
+is(
+   ss_get_by_ssh( array(
+      'file'    => 'samples/mongodb-001.txt',
+      'type'    => 'mongodb',
+      'host'    => 'localhost',
+      'items'   => 'd4,d5,d6,d7,d8,d9,da,db,dc,dd,de,df,dg,dh,di,dj,dk,dl,dm',
+   )),
+   'd4:3 d5:16029581312 d6:64981303296 d7:65457356800 d8:1589814 d9:1589814 da:0 db:0 dc:4883 dd:2309034 de:472 df:36 dg:1584705 dh:145518 di:2521129 dj:601 dk:2268817 dl:17810 dm:0',
+   'main(samples/mongodb-001.txt)'
+);
+
+is_deeply(
    jmx_parse( null, file_get_contents('samples/jmx-001.txt') ),
    array(
       'JMX_heap_memory_used'          => '52685256',

@@ -1,17 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
 V 31
-/svn/!svn/ver/452/trunk/scripts
+/svn/!svn/ver/493/trunk/scripts
 END
 ss_get_by_ssh.php
 K 25
 svn:wc:ra_dav:version-url
 V 49
-/svn/!svn/ver/432/trunk/scripts/ss_get_by_ssh.php
+/svn/!svn/ver/493/trunk/scripts/ss_get_by_ssh.php
 END
 ss_get_mysql_stats.php
 K 25
 svn:wc:ra_dav:version-url
 V 54
-/svn/!svn/ver/452/trunk/scripts/ss_get_mysql_stats.php
+/svn/!svn/ver/493/trunk/scripts/ss_get_mysql_stats.php
 END

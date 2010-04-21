@@ -342,6 +342,34 @@ is(
 );
 
 is_deeply(
+   jmx_parse( null, file_get_contents('samples/jmx-001.txt') ),
+   array(
+      'JMX_heap_memory_used'          => '52685256',
+      'JMX_heap_memory_committed'     => '205979648',
+      'JMX_heap_memory_max'           => '1864171520',
+      'JMX_non_heap_memory_used'      => '55160928',
+      'JMX_non_heap_memory_committed' => '61603840',
+      'JMX_non_heap_memory_max'       => '318767104',
+      'JMX_open_file_descriptors'     => '60',
+      'JMX_max_file_descriptors'      => '1024',
+   ),
+   'samples/jmx-001.txt'
+);
+
+is(
+   ss_get_by_ssh(
+      array(
+         'file'  => 'samples/jmx-001.txt',
+         'type'  => 'jmx',
+         'host'  => 'localhost',
+         'items' => 'd4,d5,d6,d7,d8,d9,da,db',
+      )
+   ),
+   'd4:52685256 d5:205979648 d6:1864171520 d7:55160928 d8:61603840 d9:318767104 da:60 db:1024',
+   'main(samples/jmx-001.txt)'
+);
+
+is_deeply(
    mongodb_parse( null, file_get_contents('samples/mongodb-001.txt') ),
    array(
       'MONGODB_connected_clients'         => '3',
@@ -352,17 +380,17 @@ is_deeply(
       'MONGODB_index_hits'                => '1589814',
       'MONGODB_index_misses'              => '0',
       'MONGODB_index_resets'              => '0',
-      'MONGODB_back_flushes'        => '4883',
-      'MONGODB_back_total_ms'       => '2309034',
-      'MONGODB_back_average_ms'     => '472',
-      'MONGODB_back_last_ms'        => '36',
+      'MONGODB_back_flushes'              => '4883',
+      'MONGODB_back_total_ms'             => '2309034',
+      'MONGODB_back_average_ms'           => '472',
+      'MONGODB_back_last_ms'              => '36',
       'MONGODB_op_inserts'                => '1584705',
       'MONGODB_op_queries'                => '145518',
       'MONGODB_op_updates'                => '2521129',
       'MONGODB_op_deletes'                => '601',
       'MONGODB_op_getmores'               => '2268817',
       'MONGODB_op_commands'               => '17810',
-      'MONGODB_slave_lag'               => '0',
+      'MONGODB_slave_lag'                 => '0',
    ),
    'samples/mongodb-001.txt'
 );
@@ -372,9 +400,9 @@ is(
       'file'    => 'samples/mongodb-001.txt',
       'type'    => 'mongodb',
       'host'    => 'localhost',
-      'items'   => 'd4,d5,d6,d7,d8,d9,da,db,dc,dd,de,df,dg,dh,di,dj,dk,dl,dm',
+      'items'   => 'dc,dd,de,df,dg,dh,di,dj,dk,dl,dm,dn,do,dp,dq,dr,ds,dt,du',
    )),
-   'd4:3 d5:16029581312 d6:64981303296 d7:65457356800 d8:1589814 d9:1589814 da:0 db:0 dc:4883 dd:2309034 de:472 df:36 dg:1584705 dh:145518 di:2521129 dj:601 dk:2268817 dl:17810 dm:0',
+   'dc:3 dd:16029581312 de:64981303296 df:65457356800 dg:1589814 dh:1589814 di:0 dj:0 dk:4883 dl:2309034 dm:472 dn:36 do:1584705 dp:145518 dq:2521129 dr:601 ds:2268817 dt:17810 du:0',
    'main(samples/mongodb-001.txt)'
 );
 

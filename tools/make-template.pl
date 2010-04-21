@@ -22,7 +22,7 @@ use warnings FATAL => 'all';
 
 our $VERSION = '@VERSION@';
 our $DISTRIB = '@DISTRIB@';
-our $SVN_REV = sprintf("%d", map { $_ || 0 } q$Revision: 400 $ =~ m/(\d*)/g);
+our $SVN_REV = sprintf("%d", map { $_ || 0 } q$Revision: 464 $ =~ m/(\d*)/g);
 
 # ###########################################################################
 # OptionParser package 1844
@@ -822,7 +822,10 @@ foreach my $g ( @{ $t->{graphs} } ) {
    foreach my $key ( keys %{$g->{dt}} ) {
       my $val = $g->{dt}->{$key};
       next unless ref $val eq 'HASH';
-      if ( !$t->{inputs}->{$g->{dt}->{input}}->{outputs}->{$key} ) {
+      if ( !$t->{inputs}->{$g->{dt}->{input}}) {
+         push @key_not_in_script, $g->{dt}->{input};   
+      }
+      elsif ( !$t->{inputs}->{$g->{dt}->{input}}->{outputs}->{$key} ) {
          push @key_not_in_script, $key;
       }
       if ( !$key_used_in_it{$key} ) {

@@ -1,13 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 33
-/svn/!svn/ver/432/trunk/t/samples
-END
-w-001.txt
-K 25
-svn:wc:ra_dav:version-url
-V 43
-/svn/!svn/ver/368/trunk/t/samples/w-001.txt
+/svn/!svn/ver/474/trunk/t/samples
 END
 redis-001.txt
 K 25
@@ -21,41 +15,17 @@ svn:wc:ra_dav:version-url
 V 51
 /svn/!svn/ver/368/trunk/t/samples/memcached-001.txt
 END
-w-002.txt
-K 25
-svn:wc:ra_dav:version-url
-V 43
-/svn/!svn/ver/368/trunk/t/samples/w-002.txt
-END
-w-003.txt
-K 25
-svn:wc:ra_dav:version-url
-V 43
-/svn/!svn/ver/432/trunk/t/samples/w-003.txt
-END
 innodb-001.txt
 K 25
 svn:wc:ra_dav:version-url
 V 48
 /svn/!svn/ver/274/trunk/t/samples/innodb-001.txt
 END
-innodb-010.txt
-K 25
-svn:wc:ra_dav:version-url
-V 48
-/svn/!svn/ver/238/trunk/t/samples/innodb-010.txt
-END
 diskstats-001.txt
 K 25
 svn:wc:ra_dav:version-url
 V 51
 /svn/!svn/ver/390/trunk/t/samples/diskstats-001.txt
-END
-innodb-011.txt
-K 25
-svn:wc:ra_dav:version-url
-V 48
-/svn/!svn/ver/238/trunk/t/samples/innodb-011.txt
 END
 diskstats-002.txt
 K 25
@@ -69,12 +39,6 @@ svn:wc:ra_dav:version-url
 V 48
 /svn/!svn/ver/228/trunk/t/samples/innodb-002.txt
 END
-innodb-012.txt
-K 25
-svn:wc:ra_dav:version-url
-V 48
-/svn/!svn/ver/238/trunk/t/samples/innodb-012.txt
-END
 diskstats-003.txt
 K 25
 svn:wc:ra_dav:version-url
@@ -87,35 +51,17 @@ svn:wc:ra_dav:version-url
 V 48
 /svn/!svn/ver/238/trunk/t/samples/innodb-003.txt
 END
-innodb-013.txt
-K 25
-svn:wc:ra_dav:version-url
-V 48
-/svn/!svn/ver/294/trunk/t/samples/innodb-013.txt
-END
 innodb-004.txt
 K 25
 svn:wc:ra_dav:version-url
 V 48
 /svn/!svn/ver/238/trunk/t/samples/innodb-004.txt
 END
-innodb-014.txt
-K 25
-svn:wc:ra_dav:version-url
-V 48
-/svn/!svn/ver/310/trunk/t/samples/innodb-014.txt
-END
 innodb-005.txt
 K 25
 svn:wc:ra_dav:version-url
 V 48
 /svn/!svn/ver/238/trunk/t/samples/innodb-005.txt
-END
-innodb-015.txt
-K 25
-svn:wc:ra_dav:version-url
-V 48
-/svn/!svn/ver/427/trunk/t/samples/innodb-015.txt
 END
 innodb-006.txt
 K 25
@@ -135,17 +81,11 @@ svn:wc:ra_dav:version-url
 V 48
 /svn/!svn/ver/238/trunk/t/samples/innodb-008.txt
 END
-free-001.txt
-K 25
-svn:wc:ra_dav:version-url
-V 46
-/svn/!svn/ver/368/trunk/t/samples/free-001.txt
-END
-apache-001.txt
+innodb-009.txt
 K 25
 svn:wc:ra_dav:version-url
 V 48
-/svn/!svn/ver/368/trunk/t/samples/apache-001.txt
+/svn/!svn/ver/238/trunk/t/samples/innodb-009.txt
 END
 openvz-001.txt
 K 25
@@ -153,23 +93,17 @@ svn:wc:ra_dav:version-url
 V 48
 /svn/!svn/ver/400/trunk/t/samples/openvz-001.txt
 END
-innodb-009.txt
+apache-001.txt
 K 25
 svn:wc:ra_dav:version-url
 V 48
-/svn/!svn/ver/238/trunk/t/samples/innodb-009.txt
+/svn/!svn/ver/368/trunk/t/samples/apache-001.txt
 END
-free-002.txt
+jmx-001.txt
 K 25
 svn:wc:ra_dav:version-url
-V 46
-/svn/!svn/ver/368/trunk/t/samples/free-002.txt
-END
-nginx-001.txt
-K 25
-svn:wc:ra_dav:version-url
-V 47
-/svn/!svn/ver/368/trunk/t/samples/nginx-001.txt
+V 45
+/svn/!svn/ver/474/trunk/t/samples/jmx-001.txt
 END
 proc_stat-001.txt
 K 25
@@ -182,4 +116,76 @@ K 25
 svn:wc:ra_dav:version-url
 V 51
 /svn/!svn/ver/368/trunk/t/samples/proc_stat-002.txt
+END
+w-001.txt
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/368/trunk/t/samples/w-001.txt
+END
+w-002.txt
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/368/trunk/t/samples/w-002.txt
+END
+w-003.txt
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/432/trunk/t/samples/w-003.txt
+END
+innodb-010.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/238/trunk/t/samples/innodb-010.txt
+END
+innodb-011.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/238/trunk/t/samples/innodb-011.txt
+END
+innodb-012.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/238/trunk/t/samples/innodb-012.txt
+END
+innodb-013.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/294/trunk/t/samples/innodb-013.txt
+END
+innodb-014.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/310/trunk/t/samples/innodb-014.txt
+END
+innodb-015.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/427/trunk/t/samples/innodb-015.txt
+END
+free-001.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/368/trunk/t/samples/free-001.txt
+END
+free-002.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/368/trunk/t/samples/free-002.txt
+END
+nginx-001.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/368/trunk/t/samples/nginx-001.txt
 END
